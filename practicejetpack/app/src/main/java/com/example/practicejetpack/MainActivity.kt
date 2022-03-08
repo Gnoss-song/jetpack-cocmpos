@@ -14,29 +14,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons.Filled
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.practicejetpack.ui.theme.AppTheme
 import com.example.practicejetpack.ui.theme.BasicsCodelabTheme
 
 class MainActivity : ComponentActivity() {
@@ -102,10 +92,9 @@ private fun Greeting(name: String) {
 @Composable
 private fun CardContent(name: String) {
     var expanded by remember { mutableStateOf(false) }
-
     Row(
         modifier = Modifier
-            .padding(12.dp)
+            .padding(horizontal = AppTheme.dimens.grid_6, vertical = Dimens.grid_6)
             .animateContentSize(
                 animationSpec = spring(
                     dampingRatio = Spring.DampingRatioMediumBouncy,
@@ -160,7 +149,7 @@ fun DefaultPreview() {
 
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
-fun OnboardingPreview() {
+fun OnBoardingPreview() {
     BasicsCodelabTheme {
         OnBoarding(onContinueClick = {})
     }
